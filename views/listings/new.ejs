@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <br><br>
+    <h3>Create a New Listing</h3>
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <!-- IMPORTANT: enctype must be on the FORM tag -->
+            <form action="/listings" method="POST" enctype="multipart/form-data" novalidate class="needs-validation">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="add a catchy title" required class="form-control">
+                    <div class="valid-feedback">
+                        Title looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" name="listing[description]" placeholder="Enter description" required class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image Listing</label>
+                    <input type="file" name="listing[image]" required class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" placeholder="1200" required class="form-control">
+                        <div class="invalid-feedback">
+                            Price should be valid
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" placeholder="India" required class="form-control">
+                        <div class="invalid-feedback">
+                            Country should be valid
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" placeholder="Enter location" required class="form-control">
+                </div>
+
+                <br><br>
+                <button type="submit" class="btn btn-dark add-btn">Add</button>
+                <br>
+            </form>
+            <br>
+        </div>
+    </div>
+</body>

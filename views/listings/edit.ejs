@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-light">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card shadow p-4 rounded-4 border-0">
+          <h3 class="text-center mb-4 btn-red fw-bold">Edit Listing</h3>
+
+          <!-- Use PUT method for edit/update -->
+          <form
+           action="/listings/<%= listing._id %>?_method=PUT"
+            method="POST"
+             novalidate class="needs-validation"
+             enctype="multipart/form-data"
+             >
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Title</label>
+              <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+              <div class="valid-feedback">
+                Title is good!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Description</label>
+              <input type="text" name="listing[description]" value="<%= listing.description %>" class="form-control" required>
+
+            </div>
+            <div class="mb-3">
+              Original Listing image
+              <br>
+              <img src="<%= ogUrl%>" alt="">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Upload new Image</label>
+              <input type="file" name="listing[image]"  class="form-control" >
+             
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Price (₹)</label>
+              <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+              <div class="invalid-feedback">
+              price should be valid
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Country</label>
+              <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+              <div class="invalid-feedback">
+        country should be valid
+      </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Location</label>
+              <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+              <div class="invalid-feedback">
+             location should be valid
+      </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+              <a href="/listings/<%= listing._id %>" class="btn btn-outline-secondary">Cancel</a>
+              <button type="submit" class="btn btn-red px-4">Update Listing</button>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="/js/script.js"></script>
