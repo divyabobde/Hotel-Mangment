@@ -98,6 +98,11 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { statusCode, message });
 });
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
+
 // -------------------- SERVER (RENDER FIX: PORT) --------------------
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
