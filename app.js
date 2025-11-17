@@ -87,13 +87,16 @@ app.use((req, res, next) => {
 });
 
 // -------------------- ROUTES --------------------
+// HOME ROUTE
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
+// ROUTES
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-app.get("/", (req, res) => {
-  res.redirect("/listings");
-});
 
 // -------------------- ERROR HANDLER --------------------
 app.use((err, req, res, next) => {
